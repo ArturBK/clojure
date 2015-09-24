@@ -44,7 +44,16 @@
                     (println "Errou a letra! Perdeu vida!")
                     (recur (dec vidas) palavra acertos))))))
 
-(defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
-  (println "Hello, World!"))
+(def carros [50000.0, 60000.0])
+
+(->> carros 
+    (map (fn [x] (* x 2))) 
+    (map (fn [x] (* x 3))) 
+    (reduce (fn [acc n] (+ acc n))))
+
+(def palavra-secreta "MELANCIA")
+
+(defn comeca-o-jogo [] (jogo total-de-vidas palavra-secreta #{}))
+
+(defn -main [& args]
+    (comeca-o-jogo))
